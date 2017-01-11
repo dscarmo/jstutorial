@@ -1,17 +1,16 @@
-var soma_res;
+var http = require("http");
 
-function soma(a, b){
-    soma_res = a + b;
-}
-soma(prompt("Primeiro argumento da soma: "), prompt("Segundo argumento da soma: "));
 
-if (confirm("Quer saber o resultado?"))
-    alert(soma_res);
-else
-{
-    alert("OK.");
-}
+http.createServer(function (request, response) {
+   // Send the HTTP header 
+   // HTTP Status: 200 : OK
+   // Content Type: text/plain
+   response.writeHead(200, {'Content-Type': 'text/plain'});
+   
+   // Send the response body as "Hello World"
+   response.end('Servidor para mapa qgis \n');
+}).listen(8081);
 
-while(true){
-    alert("Now you are locked for all of eternity.");
-}
+// Console will print the message
+console.log('Server running at http://127.0.0.1:8081/');
+
